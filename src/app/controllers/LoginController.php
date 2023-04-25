@@ -39,14 +39,14 @@ class LoginController extends Controller
         } else {
             $response->setStatusCode(403, 'User Not Found');
             $response->setContent('Authentication Failed!');
-            $response->send();die;
+            $response->send();
+            die;
         }
     }
     public function DashboardAction()
     {
         // if it's not marked as loggedIn in session, redirect to login
-        $response = new Response();
-        if(!$this->session->loggedIn) {
+        if (!$this->session->loggedIn) {
             $this->response->redirect('login/index');
         }
     }
